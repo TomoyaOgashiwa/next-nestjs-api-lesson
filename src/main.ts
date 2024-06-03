@@ -8,7 +8,8 @@ import * as cookieParser from 'cookie-parser';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  // DTOとクラスのバリデーションを有効かするために必要
+  // DTOとクラスのバリデーションを有効化するために必要
+  // whitelist: trueはDTOで定義していない値が送られてきたときにその値を省いてくれるもの
   app.useGlobalPipes(new ValidationPipe({ whitelist: true }));
 
   // CORS設定
